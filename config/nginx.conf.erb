@@ -31,7 +31,9 @@ http {
 	server {
 	    location / {
             index /public/newindex.html;
+            error_page 404             /misc/error.html;
         }
+
 		listen <%= ENV["PORT"] %>;
 		server_name _;
 		keepalive_timeout 5;
