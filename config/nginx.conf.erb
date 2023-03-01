@@ -29,9 +29,12 @@ http {
 	client_body_timeout <%= ENV['NGINX_CLIENT_BODY_TIMEOUT'] || 5 %>;
 
 	server {
+	    error_page 404 /misc/error.html;
+	    location /error-page.html{
+                    index /misc/error.html;
+        }
 	    location / {
             index /public/newindex.html;
-            error_page 404 /misc/error.html;
         }
 
 		listen <%= ENV["PORT"] %>;
