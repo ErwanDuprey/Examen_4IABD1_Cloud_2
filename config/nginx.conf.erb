@@ -29,10 +29,9 @@ http {
 	client_body_timeout <%= ENV['NGINX_CLIENT_BODY_TIMEOUT'] || 5 %>;
 
 	server {
-	    location / {
-            index /public/newindex.html;
+	    location = / {
+            index public/newindex.html;
         }
-
 		listen <%= ENV["PORT"] %>;
 		server_name _;
 		keepalive_timeout 5;
