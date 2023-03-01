@@ -29,7 +29,6 @@ http {
 	client_body_timeout <%= ENV['NGINX_CLIENT_BODY_TIMEOUT'] || 5 %>;
 
 	server {
-	    error_page 404 /public/misc/error.html;
 	    location = / {
             index public/newindex.html;
         }
