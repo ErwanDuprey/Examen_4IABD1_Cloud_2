@@ -31,7 +31,7 @@ http {
 	server {
 	    location / {
             index /public/newindex.html;
-            error_page 404             /misc/error.html;
+            error_page 404 /misc/error.html;
         }
 
 		listen <%= ENV["PORT"] %>;
