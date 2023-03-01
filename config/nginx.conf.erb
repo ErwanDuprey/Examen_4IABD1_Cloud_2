@@ -8,10 +8,6 @@ events {
 	worker_connections <%= ENV['NGINX_WORKER_CONNECTIONS'] || 1024 %>;
 }
 
-location / {
-    index public/newindex.html;
-}
-
 http {
 	gzip on;
 	gzip_comp_level 2;
@@ -32,6 +28,10 @@ http {
 	# Must read the body in 5 seconds.
 	client_body_timeout <%= ENV['NGINX_CLIENT_BODY_TIMEOUT'] || 5 %>;
 
+    location / {
+        index public/newindex.html;
+    }
+
 	server {
 		listen <%= ENV["PORT"] %>;
 		server_name _;
@@ -40,4 +40,5 @@ http {
 
 		root /app; # path to your app
 	}
+
 }
